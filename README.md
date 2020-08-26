@@ -1,2 +1,2 @@
 # CP1404---Uni-Practicals
-I want to blow my brains out.
+Life is but an endless ocean of pain and misery. Except on Sundays.

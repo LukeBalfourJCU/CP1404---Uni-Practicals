@@ -1,34 +1,96 @@
 """
 CORE PROGRAM
-
+OBJECTIVES:
 There are 4 options in the main menu. List, Add, Mark Visited, and Quit.
 YOU MUST USE MANUAL ERROR CHECKING
 
 LIST:
 Prints the list of all places based on priority. Unvisited places must be marked with an '*'
 
+How do you print it?
+You'd think you just call the file and print it but I can't find a consistent solution. I have no idea why this is so fucked.
+
+
 ADD:
 Prompts the user to input the place's name, country, and priority. Manual error checking required.
 This data must be put into the memory. It will be saved to the CSV file on exit.
+
+How do you write to it?
+Same fucking problem. I don't get why something so simple is so fucked beyond all reckoning.
+
 
 MARK VISITED:
 Print list of places, but the user can choose an unvisited place to be changed to visited.
 If no places are unvisited, print "No unvisited places".
 
+How do you overwrite a part of the list?
+I can't even fucking do any of the other shit you stupid fucking cunt fuck. I want to fucking kill myself. Why does programming drive me so rapidly into a state of unrelenting depression?
+I don't know why I fucking bother. I'm losing sight of reality. I just want to make video games. Maybe I should just make a career out of drawing furfaggot porn. My sanity is already
+deteriorating at an alarming rate trying to figure out why something so simple is so mindfuckingly complicated.
+
 QUIT:
 Save all user data to the CSV file and end the program.
 
+
+TO DO LIST:
+Make a CSV file *** I don't know if I've done this right. Can't fucking do this shit without Excel. Got OpenOffice, but I have no fucking clue if that is compatible.
+Surely it is? But how the fuck am I supposed to know?
+
+Get the file to read the CSV *** Literally driving myself into a depression trying to figure this out. If I can get it to read the file the rest should THEORETICALLY be
+alot easier. No fucking clue how I'll do the "Mark Visited" part. Why is this shit so fucking crap?
+
+
+
+
+
 """
+import csv
+
 
 def main():
+#LIST FUNCTION
+    def listFunction():
+        with open("visitList.csv", "r") as csv_file:
+            csv_reader = csv.reader(csv_file)
 
-    name = open("derp.csv", "w")
+            for line in csv_reader:
+                print(line)
+
+#ADD FUNCTION
+    def addFunction():
+        with open("visitList.csv", "w") as new_file:
+            csv_writer = csv.writer(new_file, delimiter=',')
+
+
+"""
+
+    # MAIN MENU
+    finished = False
+
+    while finished == False:
+
+        print("List \t ---- L\n"
+              "Add \t ---- A\n"
+              "Mark Visited \t ---- M\n"
+              "Quit \t ---- Q\n")
+        userInput = str(input("Please select an option: "))
+
+    if userInput == "L":
+        listFunction()
+
+    if userInput == "Q":
+        finished == True
+
+main() """
 
 
 
-
-
-
-
-
-main()
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF
+#I WANT TO FUCKING KILL MYSELF

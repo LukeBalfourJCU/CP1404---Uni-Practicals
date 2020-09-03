@@ -9,7 +9,7 @@ CODE_TO_NAME = {"QLD": "Queensland", "NSW": "New South Wales", "NT": "Northern T
                 "ACT": "Australian Capital Territory", "VIC": "Victoria", "TAS": "Tasmania"}
 
 for name in CODE_TO_NAME:
-    print(CODE_TO_NAME)
+    print("{} : {}".format(name, CODE_TO_NAME[name]))
 
 
 state_code = input("Enter short state: ").upper()

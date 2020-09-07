@@ -19,60 +19,103 @@ QUIT:
 Save all user data to the CSV file and end the program.
 
 """
-dataFile = "visitList.txt"
 
+MENU = """
+L \t---- List places
+A \t---- Add new place
+M \t---- Mark a place as visited
+Q \t---- Quit
+>>> 
+"""
+
+FILENAME = "visitList.csv"
+data = []
+
+#LIST FUNCTION
+def listFunction(data,FILENAME):
+
+    data = []
+    inputFile = open(FILENAME, "r")
+
+    for information in inputFile:
+        print("{}".format(information))
+
+#ADD FUNCTION
+def addFunction(data,FILENAME):
+
+    dataMark = 1
+    inputFile = open(FILENAME, "a")
+
+    for data in range(1, dataMark + 1):
+
+        name = str(input("Name: "))
+        while name == "":
+            print("Input cannot be blank")
+            name = str(input("Name: "))
+
+        country = str(input("Country: "))
+        while country == "":
+            print("Input cannot be blank")
+            country = str(input("Country: "))
+
+        try:
+            priority = int(input("Priority: "))
+            while priority == "":
+                print("Invalid input; enter a valid number")
+                priority = int(input("Priority: "))
+        except:
+            print("Invalid input; enter a valid number")
+
+        visited = "*"
+        compiler = (name, country, priority, visited)
+        data = str(compiler)
+        tempData = str(compiler)
+        inputFile.write(str(compiler))
+        return data
+
+
+
+#MARK FUNCTION
+def markFunction(data, FILENAME):
+
+#    data = []
+    inputFile = open(FILENAME, "w")
+    total = ""
+
+    for data, information in enumerate(inputFile):
+        total += information
+        print("{} {}".format(data, information))
+        for dataMark in inputFile:
+            dataMark = 0
+            if "X" in inputFile:
+                dataMark += 1
+        print("{}".format(dataMark))
+
+    userInput = str(input("Enter the number of a place to mark as visited"))
+
+def saveFunction(inputFile, FILENAME):
+    inputFile = FILENAME
+    inputFile.close(FILENAME)
+
+#MAIN FUNCTION
 def main():
-    #LIST FUNCTION
-    def listFunction():
-
-        data = []
-        inputFile = open(dataFile)
-        for information in dataFile:
-            print(dataFile)
-            print("{} : {} : {} : {}".format(information, dataFile))
-            print("----------------")
-            inputFile.close()
-
-
-    #ADD FUNCTION
-    def addFunction():
-        visitList = []
-        dataMark = 1
-        priority = int(input("Please enter the priority number: "))
-
-        for data in range(1, dataMark + 1):
-            name = str(input("Enter the location name: "))
-            country = str(input("Enter the location's country: "))
-            visited = " X "
-
-            visitList.append(name, country, priority, visited)
-
-        print("\nIncome Report\n-------------")
-        total = 0
-
-        for data in range(1, dataMark + 1):
-            data = visitList[dataMark - 1]
-            total += data
-            print("Priority {:2} - Income: ${:10.2f} Total: ${:10.2f}".format(name, country, priority))
+    choice = input(MENU).upper()
+    print(data)
+    while choice != "Q":
+        if choice == "L":
+            listFunction(data, FILENAME)
+        elif choice == "A":
+            addFunction(data,FILENAME)
+        elif choice == "M":
+            markFunction(data, FILENAME)
+        else:
+            print("Invalid menu choice")
+        choice = input(MENU).upper()
+    saveFunction(FILENAME)
 
 
-    # MAIN MENU FUNCTION
-    def mainMenu():
-
-        print("List \t ---- L\n"
-        "Add \t ---- A\n"
-        "Mark Visited \t ---- M\n"
-        "Quit \t ---- Q\n")
-
-        userInput = str(input("Please select an option: "))
-
-        if userInput == "L":
-            listFunction()
-
-    runProgram = False
-
-    while runProgram == False:
-        mainMenu()
+def list_places(places):
+    pass
 
 
 main()
